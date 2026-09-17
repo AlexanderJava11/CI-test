@@ -8,7 +8,11 @@ on:
 
 jobs:
   test_and_build:
-    runs-on: ubuntu-latest
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest,macos-latest]
+        java: [17,21]
 
     services:
       mysql:
@@ -31,7 +35,7 @@ jobs:
       - name: sätta upp Java miljö
         uses: actions/setup-java@v5
         with:
-          java-version: "17"
+          java-version: ${{matrix.java}}
           distribution: "temurin"
           cache: "maven"
 
