@@ -2,8 +2,8 @@ package systementor.customerservice;
 
 public class Calc {
 
-    public int add(int i, int i1) {
+    public int add(int a, int b){
+        return a+b;
     }
-
-    public int
 }
+
